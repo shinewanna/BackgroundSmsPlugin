@@ -73,7 +73,3 @@ Send with custom sim slot 1 for sim1, 2 for sim2 and so on.
 
 ### Created by
 [Shine Wanna](https://github.com/shinewanna)
-
-## Contributions
-
-Any contribution is welcome.
