@@ -14,7 +14,7 @@ For help on editing plugin code, view the [documentation](https://flutter.io/pla
 
 ## Installation and Usage
 
-Once you're familiar with Flutter you may install this package adding `background_sms` to the dependencies list
+Add `background_sms` to the dependencies list
 of the `pubspec.yaml` file as follow:
 
 ```yaml
@@ -48,7 +48,11 @@ Simply send sms with default sim.
 ```dart
   String result = await BackgroundSms.sendMessage(
      phoneNumber: "09xxxxxxxxx", message: "Message");
-    if(result == "")
+    if (result == SmsStatus.sent) {
+      print("Sent");
+    } else {
+      print("Failed");
+    }
 }
 ```
 
@@ -57,7 +61,11 @@ Send with custom sim slot 1 for sim1, 2 for sim2 and so on.
 ```dart
   String result = await BackgroundSms.sendMessage(
      phoneNumber: "09xxxxxxxxx", message: "Message", simSlot: 1);
-    if(result == "")
+    if (result == SmsStatus.sent) {
+      print("Sent");
+    } else {
+      print("Failed");
+    }
 }
 ```
 
