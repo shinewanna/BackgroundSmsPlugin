@@ -53,7 +53,6 @@ Simply send sms with default sim.
     } else {
       print("Failed");
     }
-}
 ```
 
 Send with custom sim slot 1 for sim1, 2 for sim2 and so on.
@@ -66,7 +65,6 @@ Send with custom sim slot 1 for sim1, 2 for sim2 and so on.
     } else {
       print("Failed");
     }
-}
 ```
 
 
