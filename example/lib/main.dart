@@ -17,17 +17,21 @@ class _MyAppState extends State<MyApp> {
         Permission.sms,
       ].request();
 
-  Future<bool> _isPermissionGranted() async => await Permission.sms.status.isGranted;
+  Future<bool> _isPermissionGranted() async =>
+      await Permission.sms.status.isGranted;
 
-  _sendMessage(String phoneNumber, String message, {String simSlot}) async {
+  _sendMessage(String phoneNumber, String message, {int simSlot}) async {
     var result = await BackgroundSms.sendMessage(
-        phoneNumber: "09xxxxxxxxxx", message: "Hello");
+        phoneNumber: phoneNumber, message: message, simSlot: simSlot);
     if (result == SmsStatus.sent) {
       print("Sent");
     } else {
       print("Failed");
     }
   }
+
+  Future<bool> get _supportCustomSim async =>
+      await BackgroundSms.isSupportCustomSim;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +43,13 @@ class _MyAppState extends State<MyApp> {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.send),
           onPressed: () async {
-            if (await _isPermissionGranted()) _sendMessage("09xxxxxxxxxx", "Hello");
-            _getPermission();
+            if (await _isPermissionGranted()) {
+              if (await _supportCustomSim)
+                _sendMessage("09xxxxxxxxx", "Hello", simSlot: 1);
+              else
+                _sendMessage("09xxxxxxxxx", "Hello");
+            } else
+              _getPermission();
           },
         ),
       ),

@@ -1,6 +1,6 @@
 name: background_sms
 description: The main purpose is to send sms from background and headless.You can send sms whatever the phone state is in app or background or headless.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/shinewanna/BackgroundSmsPlugin
 
 environment:

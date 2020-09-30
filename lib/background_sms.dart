@@ -21,4 +21,13 @@ class BackgroundSms {
       return SmsStatus.failed;
     }
   }
+
+  static Future<bool> get isSupportCustomSim async {
+    try {
+      return await _channel.invokeMethod('isSupportMultiSim');
+    } on PlatformException catch (e) {
+      print(e.toString());
+      return true;
+    }
+  }
 }

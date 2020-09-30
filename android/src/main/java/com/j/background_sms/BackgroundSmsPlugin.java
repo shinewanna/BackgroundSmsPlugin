@@ -52,8 +52,18 @@ public class BackgroundSmsPlugin implements FlutterPlugin, MethodCallHandler {
       String msg = call.argument("msg");
       Integer simSlot = call.argument("simSlot");
       sendSMS(num, msg, simSlot, result);
-    } else {
+    }else if(call.method.equals("isSupportMultiSim")) {
+      isSupportCustomSim(result);
+    } else{
       result.notImplemented();
+    }
+  }
+
+  private void isSupportCustomSim(Result result){
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+      result.success(true);
+    }else{
+      result.success(false);
     }
   }
 
@@ -63,11 +73,10 @@ public class BackgroundSmsPlugin implements FlutterPlugin, MethodCallHandler {
       if (simSlot == null) {
         smsManager = SmsManager.getDefault();
       } else {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
           smsManager = SmsManager.getSmsManagerForSubscriptionId(simSlot);
         } else {
-          result.error("Failed", "This version of android does not support multicard SIM", null);
-          return;
+          smsManager = SmsManager.getDefault();
         }
       }
       smsManager.sendTextMessage(num, null, msg, null, null);

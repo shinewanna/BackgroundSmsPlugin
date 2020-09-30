@@ -1,3 +1,3 @@
-## 0.0.2
+## 0.0.3
 
-* Modified Documentation 
+* Add isSupportCustomSim method which to know the device can set Custom Sim Slot or not.

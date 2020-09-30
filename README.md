@@ -67,6 +67,30 @@ Send with custom sim slot 1 for sim1, 2 for sim2 and so on.
     }
 ```
 
+You can check Custom Sim Slot is support from Native Android.
+
+```dart
+  bool result = await BackgroundSms.isSupportCustomSim;
+    if (result) {
+      print("Support Custom Sim Slot");
+        String result = await BackgroundSms.sendMessage(
+        phoneNumber: "09xxxxxxxxx", message: "Message", simSlot: 1);
+        if (result == SmsStatus.sent) {
+          print("Sent");
+        } else {
+          print("Failed");
+        }
+    } else {
+      print("Not Support Custom Sim Slot");
+        String result = await BackgroundSms.sendMessage(
+        phoneNumber: "09xxxxxxxxx", message: "Message");
+        if (result == SmsStatus.sent) {
+          print("Sent");
+        } else {
+          print("Failed");
+        }
+    }
+```
 
 
 ### Created by
