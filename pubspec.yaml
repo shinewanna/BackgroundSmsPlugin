@@ -1,11 +1,11 @@
 name: background_sms
 description: The main purpose is to send sms from background and headless.You can send sms whatever the phone state is in app or background or headless.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/shinewanna/BackgroundSmsPlugin
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.20.0 <2.0.0"
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=1.20.0"
 
 dependencies:
   flutter:

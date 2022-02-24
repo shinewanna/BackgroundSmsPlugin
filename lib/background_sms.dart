@@ -8,9 +8,11 @@ class BackgroundSms {
   static const MethodChannel _channel = const MethodChannel('background_sms');
 
   static Future<SmsStatus> sendMessage(
-      {String phoneNumber, String message, int simSlot}) async {
+      {required String phoneNumber,
+      required String message,
+      int? simSlot}) async {
     try {
-      String result = await _channel.invokeMethod('sendSms', <String, dynamic>{
+      String? result = await _channel.invokeMethod('sendSms', <String, dynamic>{
         "phone": phoneNumber,
         "msg": message,
         "simSlot": simSlot
@@ -22,7 +24,7 @@ class BackgroundSms {
     }
   }
 
-  static Future<bool> get isSupportCustomSim async {
+  static Future<bool?> get isSupportCustomSim async {
     try {
       return await _channel.invokeMethod('isSupportMultiSim');
     } on PlatformException catch (e) {

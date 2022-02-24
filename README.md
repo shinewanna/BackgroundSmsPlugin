@@ -5,13 +5,6 @@ You can send SMS from foreground, background, and headless.
 
 It only support Android for now.
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
-
-For help on editing plugin code, view the [documentation](https://flutter.io/platform-plugins/#edit-code).
-
 ## Installation and Usage
 
 Add `background_sms` to the dependencies list
@@ -92,6 +85,11 @@ You can check Custom Sim Slot is support from Native Android.
     }
 ```
 
+## Platform Detail
+Flutter 2.8.1 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 77d935af4d (2 months ago) • 2021-12-16 08:37:33 -0800
+Engine • revision 890a5fca2e
+Tools • Dart 2.15.1
 
 ### Created by
 [Shine Wanna](https://github.com/shinewanna)
