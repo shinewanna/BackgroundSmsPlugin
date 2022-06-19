@@ -13,7 +13,7 @@ class BackgroundSms {
       int? simSlot}) async {
     try {
       String? result = await _channel.invokeMethod('sendSms', <String, dynamic>{
-        "phone": phoneNumber,
+        "phone": phoneNumber.join(','),
         "msg": message,
         "simSlot": simSlot
       });
