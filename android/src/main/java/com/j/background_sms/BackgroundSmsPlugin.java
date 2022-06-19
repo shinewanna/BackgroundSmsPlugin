@@ -48,7 +48,7 @@ public class BackgroundSmsPlugin implements FlutterPlugin, MethodCallHandler {
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     if (call.method.equals("sendSms")) {
-      String[] num = call.argument("phone");
+      String[] num = call.argument("phone") as String[]?;
       String msg = call.argument("msg");
       Integer simSlot = call.argument("simSlot");
       sendSMS(num, msg, simSlot, result);
