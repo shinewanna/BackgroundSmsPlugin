@@ -79,7 +79,7 @@ public class BackgroundSmsPlugin implements FlutterPlugin, MethodCallHandler {
           smsManager = SmsManager.getDefault();
         }
       }
-      for(String number : numbers) {
+      for(String number : num) {
         smsManager.sendTextMessage(number, null, msg, null, null);
       }
       result.success("Sent");
