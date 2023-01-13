@@ -36,7 +36,7 @@ Import
 import 'package:background_sms/background_sms.dart';
 ```
 
-Simply send sms with default sim.
+Simply send sms with default sim. **Note**: messages longer than 160 characters will not send and must be [manually broken up](https://github.com/shinewanna/BackgroundSmsPlugin/issues/7).
 
 ```dart
   String result = await BackgroundSms.sendMessage(
